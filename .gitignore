@@ -1,0 +1,15 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+#Para não mandar para o git arquivos desse formato
+*.doc
+*.docx
+*.html
+*.pdf
+*.pptx
+
+data*/
+
+1*.R
