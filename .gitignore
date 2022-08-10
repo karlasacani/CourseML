@@ -7,9 +7,9 @@
 *.doc
 *.docx
 *.html
-*.pdf
-*.pptx
+#*.pdf
+#*.pptx
 
-data*/
+dataraw*/
 
 1*.R
