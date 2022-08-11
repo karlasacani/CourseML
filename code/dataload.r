@@ -24,3 +24,28 @@ aux4 <- data.frame(Year = year(aux3), Month = month(aux3), Day = day(aux3))
 data_prepared <- cbind(aux4,aux2)
 
 saveRDS(data_prepared, file = "data_prepared.rds")
+
+# Professor script ----
+rm(list = ls()) 
+# Drca <- read.csv("./dataraw/rca_data_2012_2022-06-29.csv")
+# ls(Drca)
+# 
+# # load and reduce size
+# require(tidyverse)
+# Drca <- Drca %>% select(Date, CellID, SAL_avg) %>% 
+#     mutate(Date = as.Date(Date), Month = as.integer(format(Date, "%m")),
+#            Year = as.integer(format(Date, "%Y"))) %>% 
+#     filter(Year == 2012) %>% 
+#     group_by(CellID, Month) %>% 
+#     summarise(SAL_avg = mean(SAL_avg))
+# summary(Drca)
+# saveRDS(Drca, file = "./dataderived/Drca.RDS")
+
+Drca <- readRDS("./dataderived/Drca.RDS")
+
+CELLS <- unique(Drca$CellID)
+set.seed(123)
+cells <- sample(CELLS, 100)
+
+drca <- Drca %>% 
+    filter(is.element(CellID, cells))
